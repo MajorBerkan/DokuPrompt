@@ -1,0 +1,79 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Code Directory
+code-doc/node_modules
+dist
+dist-ssr
+*.local
+
+# Vite build cache
+.vite/
+**/.vite/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+node_modules/
+
+# Exclude generated files and temporary files
+src/backend/data/repos/
+package-lock.json
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Docker volumes or temporary files
+docker-compose.override.yml
+
+# Dependency directories (if using Yarn, npm, or pnpm)
+.yarn/*
+.yarnrc.yml
+.pnpm/
+
+# Environment files (specific to your system)
+.env
+.env.test
+.env.*.local
+
+# Test coverage reports
+.coverage
+htmlcov/
+coverage.xml
+coverage.json
+coverage/
+.pytest_cache/
+
+# Test databases
+*.db
+test.db
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+**/test-results/
+**/playwright-report/
+
+
+# Test databases
+*.db
+test.db
+*.sqlite
+

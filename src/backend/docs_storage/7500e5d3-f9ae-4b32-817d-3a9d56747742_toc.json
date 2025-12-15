@@ -1,0 +1,176 @@
+{
+  "headings": [
+    {
+      "level": 1,
+      "title": "LLM2Vec Documentation"
+    },
+    {
+      "level": 2,
+      "title": "Overview"
+    },
+    {
+      "level": 2,
+      "title": "Key Features"
+    },
+    {
+      "level": 2,
+      "title": "Installation"
+    },
+    {
+      "level": 2,
+      "title": "Quick Start"
+    },
+    {
+      "level": 3,
+      "title": "Basic Usage"
+    },
+    {
+      "level": 1,
+      "title": "Load a pre-trained LLM2Vec model"
+    },
+    {
+      "level": 1,
+      "title": "Encode text"
+    },
+    {
+      "level": 2,
+      "title": "Model Architecture"
+    },
+    {
+      "level": 3,
+      "title": "Bidirectional Attention"
+    },
+    {
+      "level": 3,
+      "title": "Training Stages"
+    },
+    {
+      "level": 2,
+      "title": "Training Configuration"
+    },
+    {
+      "level": 3,
+      "title": "MNTP Training"
+    },
+    {
+      "level": 3,
+      "title": "SimCSE Training"
+    },
+    {
+      "level": 2,
+      "title": "Word-Level Tasks"
+    },
+    {
+      "level": 3,
+      "title": "Token Classification"
+    },
+    {
+      "level": 3,
+      "title": "Key Parameters"
+    },
+    {
+      "level": 2,
+      "title": "Supported Models"
+    },
+    {
+      "level": 3,
+      "title": "Pre-trained Models Available"
+    },
+    {
+      "level": 3,
+      "title": "Model Variants"
+    },
+    {
+      "level": 2,
+      "title": "Configuration Files"
+    },
+    {
+      "level": 3,
+      "title": "Training Configurations"
+    },
+    {
+      "level": 3,
+      "title": "Testing Configurations"
+    },
+    {
+      "level": 2,
+      "title": "Advanced Features"
+    },
+    {
+      "level": 3,
+      "title": "Flash Attention Support"
+    },
+    {
+      "level": 3,
+      "title": "LoRA Fine-tuning"
+    },
+    {
+      "level": 3,
+      "title": "Gradient Checkpointing"
+    },
+    {
+      "level": 2,
+      "title": "Training Commands"
+    },
+    {
+      "level": 3,
+      "title": "MNTP Training"
+    },
+    {
+      "level": 3,
+      "title": "SimCSE Training"
+    },
+    {
+      "level": 3,
+      "title": "Word-Level Task Training"
+    },
+    {
+      "level": 2,
+      "title": "Evaluation"
+    },
+    {
+      "level": 3,
+      "title": "Running Evaluations"
+    },
+    {
+      "level": 3,
+      "title": "Supported Datasets"
+    },
+    {
+      "level": 2,
+      "title": "Best Practices"
+    },
+    {
+      "level": 3,
+      "title": "Memory Optimization"
+    },
+    {
+      "level": 3,
+      "title": "Training Tips"
+    },
+    {
+      "level": 2,
+      "title": "Troubleshooting"
+    },
+    {
+      "level": 3,
+      "title": "Common Issues"
+    },
+    {
+      "level": 2,
+      "title": "Contributing"
+    },
+    {
+      "level": 2,
+      "title": "Citation"
+    },
+    {
+      "level": 2,
+      "title": "Contact"
+    },
+    {
+      "level": 2,
+      "title": "License"
+    }
+  ]
+}

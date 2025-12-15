@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture Analysis Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f9fafb;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #3200c8;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .content {
+            padding: 20px;
+        }
+        
+        .summary-box {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .summary-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .summary-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        
+        .summary-item.full-width {
+            grid-column: span 2;
+        }
+        
+        .summary-value {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .summary-label {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        .summary-description {
+            font-size: 14px;
+            color: #475569;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+        
+        .module-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #f8fafc;
+        }
+        
+        .module-name {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+        
+        .module-description {
+            font-size: 12px;
+            color: #64748b;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .dependencies {
+            margin-left: 20px;
+        }
+        
+        .dependencies-title {
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .dependency-item {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #475569;
+            margin-bottom: 3px;
+        }
+        
+        .cycle-card {
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: #fef2f2;
+        }
+        
+        .cycle-card.medium {
+            border-color: #fed7aa;
+            background: #fff7ed;
+        }
+        
+        .cycle-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .cycle-icon {
+            font-size: 24px;
+        }
+        
+        .cycle-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        
+        .cycle-path {
+            background: white;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+        
+        .cycle-path-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+        
+        .cycle-impact {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+        
+        .cycle-description {
+            font-size: 12px;
+            color: #475569;
+        }
+        
+        .no-deps {
+            color: #16a34a;
+            font-size: 12px;
+            margin-left: 20px;
+        }
+        
+        .color-blue { color: #2563eb; }
+        .color-purple { color: #9333ea; }
+        .color-orange { color: #ea580c; }
+        .color-red { color: #dc2626; }
+        .color-green { color: #16a34a; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Architecture Analysis - sep-thm/CaffeineCode</h1>
+            <p>Complete Mock Architecture Analysis Report</p>
+        </div>
+        
+        <div class="content">
+            <!-- Summary Box -->
+            <div class="summary-box">
+                <h2 class="summary-title">Dependency Summary</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <div class="summary-value color-blue">47</div>
+                        <div class="summary-label">Direct Internal</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value color-purple">23</div>
+                        <div class="summary-label">Direct External</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value color-orange">156</div>
+                        <div class="summary-label">Transitive Total</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value color-red">3</div>
+                        <div class="summary-label">Cyclic Chains</div>
+                    </div>
+                    <div class="summary-item full-width">
+                        <div class="summary-value color-green">89</div>
+                        <div class="summary-label">Files with Dependencies</div>
+                    </div>
+                </div>
+                <p class="summary-description">
+                    The repository shows moderate coupling with 47 internal dependencies. The presence of 3 cyclic dependency chains indicates areas requiring architectural review.
+                </p>
+            </div>
+            
+            <!-- Internal Dependencies Tree -->
+            <div class="section">
+                <h2 class="section-title">Internal Dependencies Tree</h2>
+                
+                <div class="module-card">
+                    <div class="module-name">src/frontend/App.jsx</div>
+                    <div class="module-description">Main application entry point</div>
+                    <div class="dependencies">
+                        <div class="dependencies-title">depends on:</div>
+                        <div class="dependency-item">→ src/frontend/components/DocumentationViewWrapper.jsx</div>
+                        <div class="dependency-item">→ src/frontend/lib/AuthProvider.jsx</div>
+                        <div class="dependency-item">→ src/frontend/components/AppRoutes.jsx</div>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-name">src/frontend/components/DocumentationViewWrapper.jsx</div>
+                    <div class="module-description">Wrapper component for documentation display</div>
+                    <div class="dependencies">
+                        <div class="dependencies-title">depends on:</div>
+                        <div class="dependency-item">→ src/frontend/components/DocumentationView.jsx</div>
+                        <div class="dependency-item">→ src/frontend/lib/api.js</div>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-name">src/frontend/components/DocumentationView.jsx</div>
+                    <div class="module-description">Main documentation view with analysis sidebar</div>
+                    <div class="dependencies">
+                        <div class="dependencies-title">depends on:</div>
+                        <div class="dependency-item">→ src/frontend/components/CodeQualityAnalysis.jsx</div>
+                        <div class="dependency-item">→ src/frontend/components/ArchitectureAnalysis.jsx</div>
+                        <div class="dependency-item">→ src/frontend/components/SideBar.jsx</div>
+                        <div class="dependency-item">→ src/frontend/components/Spinner.jsx</div>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-name">src/frontend/components/CodeQualityAnalysis.jsx</div>
+                    <div class="module-description">Code quality metrics and visualizations</div>
+                    <div class="dependencies">
+                        <div class="dependencies-title">depends on:</div>
+                        <div class="dependency-item">→ src/frontend/lib/codeQualityMockData.js</div>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-name">src/frontend/components/ArchitectureAnalysis.jsx</div>
+                    <div class="module-description">Architecture analysis with dependency visualization</div>
+                    <div class="dependencies">
+                        <div class="dependencies-title">depends on:</div>
+                        <div class="dependency-item">→ src/frontend/lib/architectureMockData.js</div>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-name">src/frontend/components/AdminRepoDataTable.jsx</div>
+                    <div class="module-description">Admin table for repository management</div>
+                    <div class="dependencies">
+                        <div class="dependencies-title">depends on:</div>
+                        <div class="dependency-item">→ src/frontend/lib/api.js</div>
+                        <div class="dependency-item">→ src/frontend/components/Spinner.jsx</div>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-name">src/backend/api/endpoints.py</div>
+                    <div class="module-description">REST API endpoint definitions</div>
+                    <div class="dependencies">
+                        <div class="dependencies-title">depends on:</div>
+                        <div class="dependency-item">→ src/backend/services/documentation_service.py</div>
+                        <div class="dependency-item">→ src/backend/services/auth_service.py</div>
+                        <div class="dependency-item">→ src/backend/database/models.py</div>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-name">src/backend/services/documentation_service.py</div>
+                    <div class="module-description">Documentation generation and processing service</div>
+                    <div class="dependencies">
+                        <div class="dependencies-title">depends on:</div>
+                        <div class="dependency-item">→ src/backend/utils/markdown_renderer.py</div>
+                        <div class="dependency-item">→ src/backend/services/github_service.py</div>
+                        <div class="dependency-item">→ src/backend/database/models.py</div>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-name">src/backend/database/models.py</div>
+                    <div class="module-description">Database ORM models and schemas</div>
+                    <div class="no-deps">✓ No internal dependencies (leaf node)</div>
+                </div>
+            </div>
+            
+            <!-- Cyclic Dependencies -->
+            <div class="section">
+                <h2 class="section-title">Cyclic Dependencies</h2>
+                
+                <div class="cycle-card">
+                    <div class="cycle-header">
+                        <span class="cycle-icon">🔴</span>
+                        <div style="flex: 1;">
+                            <h3 class="cycle-title">Cycle sep-thm/CaffeineCode#1 (length 3):</h3>
+                            <div class="cycle-path">
+                                <div class="cycle-path-item">
+                                    <span>→</span>
+                                    <span>src/backend/services/documentation_service.py</span>
+                                </div>
+                                <div class="cycle-path-item">
+                                    <span>→</span>
+                                    <span>src/backend/services/github_service.py</span>
+                                </div>
+                                <div class="cycle-path-item">
+                                    <span>→</span>
+                                    <span>src/backend/utils/parser.py</span>
+                                </div>
+                                <div class="cycle-path-item">
+                                    <span>↺</span>
+                                    <span>src/backend/services/documentation_service.py</span>
+                                </div>
+                            </div>
+                            <div class="cycle-impact">Impact: 3 files affected. Critical</div>
+                            <div class="cycle-description">
+                                Documentation service depends on GitHub service which depends on parser, which requires documentation service for metadata extraction. This creates a circular dependency that could lead to import errors and makes testing difficult.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cycle-card medium">
+                    <div class="cycle-header">
+                        <span class="cycle-icon">🟠</span>
+                        <div style="flex: 1;">
+                            <h3 class="cycle-title">Cycle sep-thm/CaffeineCode#2 (length 2):</h3>
+                            <div class="cycle-path">
+                                <div class="cycle-path-item">
+                                    <span>→</span>
+                                    <span>src/frontend/lib/api.js</span>
+                                </div>
+                                <div class="cycle-path-item">
+                                    <span>→</span>
+                                    <span>src/frontend/lib/AuthProvider.jsx</span>
+                                </div>
+                                <div class="cycle-path-item">
+                                    <span>↺</span>
+                                    <span>src/frontend/lib/api.js</span>
+                                </div>
+                            </div>
+                            <div class="cycle-impact">Impact: Bidirectional dependency, moderately critical</div>
+                            <div class="cycle-description">
+                                API client and AuthProvider have mutual dependencies. API needs auth tokens, while AuthProvider uses API for token refresh. Consider using dependency injection or event-based communication.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cycle-card">
+                    <div class="cycle-header">
+                        <span class="cycle-icon">🔴</span>
+                        <div style="flex: 1;">
+                            <h3 class="cycle-title">Cycle sep-thm/CaffeineCode#3 (length 4):</h3>
+                            <div class="cycle-path">
+                                <div class="cycle-path-item">
+                                    <span>→</span>
+                                    <span>src/backend/database/models.py</span>
+                                </div>
+                                <div class="cycle-path-item">
+                                    <span>→</span>
+                                    <span>src/backend/services/auth_service.py</span>
+                                </div>
+                                <div class="cycle-path-item">
+                                    <span>→</span>
+                                    <span>src/backend/api/endpoints.py</span>
+                                </div>
+                                <div class="cycle-path-item">
+                                    <span>→</span>
+                                    <span>src/backend/api/middleware.py</span>
+                                </div>
+                                <div class="cycle-path-item">
+                                    <span>↺</span>
+                                    <span>src/backend/database/models.py</span>
+                                </div>
+                            </div>
+                            <div class="cycle-impact">Impact: 4 files affected. Architectural concern</div>
+                            <div class="cycle-description">
+                                Models depend on auth service for default values, which depends on API endpoints for user context, which depends on middleware, which queries models. This cycle indicates mixed concerns and violation of layered architecture principles.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

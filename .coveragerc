@@ -1,0 +1,30 @@
+[run]
+source = src/backend/app
+omit = 
+    */tests/*
+    */test_*.py
+    */__pycache__/*
+    */venv/*
+    */.venv/*
+
+[report]
+precision = 2
+show_missing = True
+skip_covered = False
+
+# Fail under is intentionally not set here to allow gradual improvement
+# Target: 85% coverage (current: ~45%)
+# Incremental improvement plan:
+# - Phase 1: Fix failing tests and infrastructure (DONE)
+# - Phase 2: Add tests for critical paths (routes, services)
+# - Phase 3: Add tests for worker tasks
+# - Phase 4: Achieve 85%+ coverage
+
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise AssertionError
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    if TYPE_CHECKING:
+    @abstract

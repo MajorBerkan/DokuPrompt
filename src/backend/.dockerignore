@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+*.env
+
+# Node / Frontend
+node_modules/
+dist/
+build/
+
+# Git
+.git
+.gitignore
+
+# Logs & Temp
+*.log
+*.tmp

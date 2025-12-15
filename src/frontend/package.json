@@ -1,0 +1,55 @@
+{
+  "name": "code-doc",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "lint": "eslint ./**/*.{js,jsx}"
+  },
+  "dependencies": {
+    "@azure/msal-browser": "^4.26.1",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "highlight.js": "^11.11.1",
+    "marked": "^17.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.9.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@playwright/test": "^1.57.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.10.1",
+    "@vitejs/plugin-react": "^5.0.4",
+    "@vitest/coverage-istanbul": "^4.0.14",
+    "@vitest/coverage-v8": "^4.0.14",
+    "@vitest/ui": "^4.0.14",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.38.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "eslint-plugin-security": "^3.0.1",
+    "globals": "^16.4.0",
+    "jsdom": "^27.2.0",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "rollup": "^4.53.1",
+    "tailwindcss": "3.4.18",
+    "vite": "^7.1.7",
+    "vitest": "^4.0.14"
+  },
+  "resolutions": {
+    "rollup": "npm:@rollup/wasm-node"
+  }
+}

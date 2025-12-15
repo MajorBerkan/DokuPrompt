@@ -1,0 +1,45 @@
+# FastAPI für das Backend
+fastapi==0.111.0
+
+# Uvicorn Webserver
+uvicorn[standard]==0.35
+
+# --- DB / ORM ---
+SQLAlchemy>=2.0,<3
+psycopg[binary]>=3.1
+psycopg2-binary>=2.9
+
+# Authentifizierung / OAuth2
+Authlib==1.6.5
+
+# --- Pydantic v2 + Settings ---
+pydantic>=2.7,<3
+pydantic-settings>=2.2,<3
+
+# Aufgabenplanung
+APScheduler==3.11.1
+
+# Async HTTP Requests
+httpx==0.28.1
+
+# .env Dateien einlesen
+python-dotenv==1.1.0
+
+# Git Repo Zugriff
+GitPython==3.1.35
+
+# Hintergrund-Tasks
+celery==5.3.1
+redis==5.2.0
+
+# LangChain für LLM-Integration
+langchain==0.2.15
+langchain-openai==0.1.22
+
+
+# Vektor-Datenbank Unterstützung
+pgvector>=0.3.0
+
+#FastMCP für MCP-Server
+fastmcp==2.13.3
+modelcontextprotocol==1.0.1

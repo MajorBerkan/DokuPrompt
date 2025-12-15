@@ -1,0 +1,86 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SideBar component > SideBar snapshot 1`] = `
+<div>
+  <aside
+    class="w-56 min-w-[12rem] max-w-xs text-gray-900 dark:text-gray-100 flex flex-col p-4 bg-white dark:bg-dark-bg h-full border-r border-gray-200 dark:border-gray-700"
+  >
+    <div
+      class="flex-1 mb-4 overflow-hidden flex flex-col"
+    >
+      <div
+        class="mt-2 mb-4 flex-shrink-0"
+      >
+        <a
+          aria-current="page"
+          class="block text-xl font-bold text-center mt-2
+               text-[#3200c8] dark:text-[#8080ff] hover:text-[#3f00fb] hover:dark:text-[#b3b3ff] active"
+          data-discover="true"
+          href="/"
+        >
+          Documentation
+        </a>
+        <div
+          class="border-b border-gray-300 dark:border-gray-700 mt-2"
+        />
+      </div>
+      <div
+        class="p-3 bg-white dark:bg-dark-bg flex-1 overflow-y-auto min-h-0"
+      >
+        <nav
+          class="space-y-1"
+        >
+          <div
+            class="py-2 px-3 text-sm text-gray-500 dark:text-gray-400"
+          >
+            No documentation available
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div
+      class="mt-auto space-y-4"
+    >
+      <div
+        class="pt-4 border-t border-gray-200 dark:border-gray-700"
+      >
+        <a
+          class="block py-2 px-3 border 
+     text-gray-900 dark:text-white border-gray-300 dark:border-gray-600 bg-white dark:bg-dark-bg hover:bg-[#3200c8] dark:hover:bg-[#8080ff] hover:text-white dark:hover:text-black hover:border-white "
+          data-discover="true"
+          href="/repositories"
+        >
+          Repositories
+        </a>
+      </div>
+      <div
+        class=" relative"
+      >
+        <button
+          class="w-full flex items-start gap-3 p-2 bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer "
+        >
+          <img
+            alt="Profile"
+            class="w-10 h-10 rounded-full object-cover"
+            src="/img/UserOutline3.png"
+          />
+          <div
+            class="flex flex-col text-left"
+          >
+            <span
+              class="text-sm font-medium text-gray-900 dark:text-gray-100"
+            >
+              Test User
+            </span>
+            <span
+              class="text-xs text-gray-500 dark:text-gray-400"
+            >
+              Admin
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </aside>
+</div>
+`;

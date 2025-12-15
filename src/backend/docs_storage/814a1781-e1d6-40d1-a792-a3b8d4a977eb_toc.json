@@ -1,0 +1,172 @@
+{
+  "headings": [
+    {
+      "level": 1,
+      "title": "LLM2Vec Documentation"
+    },
+    {
+      "level": 2,
+      "title": "Overview"
+    },
+    {
+      "level": 2,
+      "title": "Key Features"
+    },
+    {
+      "level": 2,
+      "title": "Quick Start"
+    },
+    {
+      "level": 3,
+      "title": "Installation"
+    },
+    {
+      "level": 3,
+      "title": "Basic Usage"
+    },
+    {
+      "level": 1,
+      "title": "Load a pre-trained LLM2Vec model"
+    },
+    {
+      "level": 1,
+      "title": "Encode sentences"
+    },
+    {
+      "level": 2,
+      "title": "Model Architecture"
+    },
+    {
+      "level": 3,
+      "title": "Bidirectional Attention"
+    },
+    {
+      "level": 3,
+      "title": "Training Pipeline"
+    },
+    {
+      "level": 2,
+      "title": "Available Models"
+    },
+    {
+      "level": 3,
+      "title": "Llama-2 Based Models"
+    },
+    {
+      "level": 3,
+      "title": "Llama-3 Based Models"
+    },
+    {
+      "level": 3,
+      "title": "Mistral Based Models"
+    },
+    {
+      "level": 2,
+      "title": "Training Your Own Models"
+    },
+    {
+      "level": 3,
+      "title": "Stage 1: MNTP Training"
+    },
+    {
+      "level": 3,
+      "title": "Stage 2: SimCSE Training"
+    },
+    {
+      "level": 3,
+      "title": "Stage 3: Supervised Training"
+    },
+    {
+      "level": 2,
+      "title": "Word-Level Tasks"
+    },
+    {
+      "level": 3,
+      "title": "POS Tagging"
+    },
+    {
+      "level": 1,
+      "title": "Training"
+    },
+    {
+      "level": 1,
+      "title": "Testing"
+    },
+    {
+      "level": 2,
+      "title": "Configuration System"
+    },
+    {
+      "level": 3,
+      "title": "Configuration Files"
+    },
+    {
+      "level": 3,
+      "title": "Common Parameters"
+    },
+    {
+      "level": 2,
+      "title": "Performance Optimization"
+    },
+    {
+      "level": 3,
+      "title": "Memory Efficiency"
+    },
+    {
+      "level": 3,
+      "title": "Training Optimization"
+    },
+    {
+      "level": 2,
+      "title": "Evaluation and Testing"
+    },
+    {
+      "level": 3,
+      "title": "MTEB Evaluation"
+    },
+    {
+      "level": 3,
+      "title": "Word Task Evaluation"
+    },
+    {
+      "level": 2,
+      "title": "Advanced Usage"
+    },
+    {
+      "level": 3,
+      "title": "Custom Datasets"
+    },
+    {
+      "level": 3,
+      "title": "Multi-GPU Training"
+    },
+    {
+      "level": 3,
+      "title": "Pooling Strategies"
+    },
+    {
+      "level": 2,
+      "title": "Troubleshooting"
+    },
+    {
+      "level": 3,
+      "title": "Common Issues"
+    },
+    {
+      "level": 2,
+      "title": "Contributing"
+    },
+    {
+      "level": 2,
+      "title": "Citation"
+    },
+    {
+      "level": 2,
+      "title": "Support"
+    },
+    {
+      "level": 2,
+      "title": "License"
+    }
+  ]
+}
